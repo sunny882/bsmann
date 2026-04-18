@@ -28,11 +28,9 @@ export default function Navbar() {
       if (currentScrollY <= 10) {
         setShowNav(true);
       } else if (currentScrollY > lastScrollY) {
-        // scrolling down = hide
         setShowNav(false);
         setOpen(false);
       } else {
-        // scrolling up = show
         setShowNav(true);
       }
 
@@ -55,6 +53,9 @@ export default function Navbar() {
         .cta-btn:hover { background: #475569; }
         .cta-btn[data-active="true"] { background: #1e293b; color: #f8fafc; }
       `}</style>
+
+      {/* Spacer pushes page below fixed navbar */}
+      <div className="h-[72px] md:h-[120px]" />
 
       <header
         className={`w-full bg-white border border-gray-500 fixed top-0 left-0 z-50 transition-transform duration-300 ${
