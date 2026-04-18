@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
+
   const [open, setOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -17,6 +19,31 @@ export default function Navbar() {
 
   const closeMenu = () => setOpen(false);
 
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 10) {
+        setShowNav(true);
+      } else if (currentScrollY > lastScrollY) {
+        // scrolling down = hide
+        setShowNav(false);
+        setOpen(false);
+      } else {
+        // scrolling up = show
+        setShowNav(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <style>{`
@@ -24,13 +51,16 @@ export default function Navbar() {
         .nav-link:hover { color: #111827; background: #f3f4f6; }
         .nav-link[data-active="true"] { color: #ffffff; background: #111827; }
 
-        /* changed CTA to slate tone */
         .cta-btn { background: #334155; color: #ffffff; }
         .cta-btn:hover { background: #475569; }
         .cta-btn[data-active="true"] { background: #1e293b; color: #f8fafc; }
       `}</style>
 
-      <header className="w-full bg-white border border-gray-500 sticky top-0 z-50">
+      <header
+        className={`w-full bg-white border border-gray-500 fixed top-0 left-0 z-50 transition-transform duration-300 ${
+          showNav ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         {/* Top Row */}
         <div className="relative h-[72px] flex items-center justify-center px-4">
           <Link href="/" className="flex items-center gap-3" onClick={closeMenu}>
@@ -41,7 +71,6 @@ export default function Navbar() {
               height={38}
               priority
             />
-
             <span className="uppercase text-[16px] sm:text-[20px] md:text-[32px] font-light tracking-wide text-gray-900 leading-none text-center">
               BS Mann Trucking Inc
             </span>
@@ -98,7 +127,6 @@ export default function Navbar() {
             <button
               onClick={closeMenu}
               className="absolute right-6 w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors"
-              aria-label="Close Menu"
             >
               <span className="text-[24px] leading-none">×</span>
             </button>
@@ -111,22 +139,20 @@ export default function Navbar() {
                 href={link.href}
                 onClick={closeMenu}
                 data-active={pathname === link.href ? "true" : "false"}
-                className="nav-link h-12 flex items-center justify-center text-[17px] font-medium transition-colors duration-150"
+                className="nav-link h-12 flex items-center justify-center text-[17px] font-medium"
               >
                 {link.name}
               </Link>
             ))}
 
-            <div className="pt-3">
-              <Link
-                href="/contact"
-                onClick={closeMenu}
-                data-active={pathname === "/contact" ? "true" : "false"}
-                className="cta-btn h-12 flex items-center justify-center text-[17px] font-medium transition-colors duration-150"
-              >
-                Contact Us
-              </Link>
-            </div>
+            <Link
+              href="/contact"
+              onClick={closeMenu}
+              data-active={pathname === "/contact" ? "true" : "false"}
+              className="cta-btn h-12 flex items-center justify-center text-[17px] font-medium"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       </header>
