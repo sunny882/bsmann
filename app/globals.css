@@ -1,22 +1,10 @@
 @import "tailwindcss";
 
-/* Root Theme Variables */
 :root {
   --background: #ffffff;
   --foreground: #1f2238;
-  --muted: #666773;
-  --accent: #be185d;
-  --footer: #1f2238;
 }
 
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Base */
 html {
   scroll-behavior: smooth;
 }
@@ -25,49 +13,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
   overflow-x: hidden;
-}
-
-/* Links */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Images */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Buttons */
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-
-/* Selection */
-::selection {
-  background: #1f2238;
-  color: white;
-}
-
-/* Utility Classes */
-.container-custom {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.section-space {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
-.text-balance {
-  text-wrap: balance;
 }

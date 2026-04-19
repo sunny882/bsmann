@@ -42,6 +42,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <>
       <style>{`
@@ -54,17 +62,22 @@ export default function Navbar() {
         .cta-btn[data-active="true"] { background: #1e293b; color: #f8fafc; }
       `}</style>
 
-      {/* Spacer pushes page below fixed navbar */}
+      {/* Spacer */}
       <div className="h-[72px] md:h-[120px]" />
 
+      {/* Header */}
       <header
-        className={`w-full bg-white border border-gray-500 fixed top-0 left-0 z-50 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 z-50 w-full overflow-visible border border-gray-500 bg-white transition-transform duration-300 ${
           showNav ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         {/* Top Row */}
-        <div className="relative h-[72px] flex items-center justify-center px-4">
-          <Link href="/" className="flex items-center gap-3" onClick={closeMenu}>
+        <div className="relative flex h-[72px] items-center justify-center px-4">
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="flex items-center gap-3"
+          >
             <Image
               src="/logo.svg"
               alt="BS Mann Trucking Inc"
@@ -72,31 +85,33 @@ export default function Navbar() {
               height={38}
               priority
             />
-            <span className="uppercase text-[16px] sm:text-[20px] md:text-[32px] font-light tracking-wide text-gray-900 leading-none text-center">
+
+            <span className="text-center text-[16px] font-light uppercase leading-none tracking-wide text-gray-900 sm:text-[20px] md:text-[32px]">
               BS Mann Trucking Inc
             </span>
           </Link>
 
+          {/* Hamburger */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden absolute right-4 w-10 h-10 flex flex-col items-center justify-center gap-1 border border-gray-400"
             aria-label="Menu"
+            className="absolute right-4 z-[1000] flex h-10 w-10 flex-col items-center justify-center gap-1 border border-gray-400 md:hidden"
           >
-            <span className="w-5 h-[2px] bg-gray-900"></span>
-            <span className="w-5 h-[2px] bg-gray-900"></span>
-            <span className="w-5 h-[2px] bg-gray-900"></span>
+            <span className="h-[2px] w-5 bg-gray-900"></span>
+            <span className="h-[2px] w-5 bg-gray-900"></span>
+            <span className="h-[2px] w-5 bg-gray-900"></span>
           </button>
         </div>
 
-        {/* Desktop Navbar */}
-        <div className="hidden md:flex h-12 bg-white border-t border-gray-500 px-[2px] py-[2px]">
-          <nav className="flex items-stretch gap-2 flex-1">
+        {/* Desktop Nav */}
+        <div className="hidden h-12 border-t border-gray-500 bg-white md:flex">
+          <nav className="flex flex-1 items-stretch gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 data-active={pathname === link.href ? "true" : "false"}
-                className="nav-link w-24 h-full flex items-center justify-center text-[15px] transition-colors duration-150"
+                className="nav-link flex h-full w-24 items-center justify-center text-[15px] transition-colors duration-150"
               >
                 {link.name}
               </Link>
@@ -106,57 +121,60 @@ export default function Navbar() {
           <Link
             href="/contact"
             data-active={pathname === "/contact" ? "true" : "false"}
-            className="cta-btn w-52 h-full flex items-center justify-center text-[15px] transition-colors duration-150"
+            className="cta-btn flex h-full w-52 items-center justify-center text-[15px] transition-colors duration-150"
           >
             Contact Us
           </Link>
         </div>
-
-        {/* Mobile Fullscreen Menu */}
-        <div
-          className={`md:hidden fixed inset-0 bg-white z-50 transform transition-all duration-300 ${
-            open
-              ? "translate-x-0 opacity-100"
-              : "translate-x-full opacity-0 pointer-events-none"
-          }`}
-        >
-          <div className="relative h-[72px] border-b border-gray-300 flex items-center justify-center px-6">
-            <span className="uppercase text-[14px] tracking-[0.22em] font-medium text-gray-700">
-              Navigation
-            </span>
-
-            <button
-              onClick={closeMenu}
-              className="absolute right-6 w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors"
-            >
-              <span className="text-[24px] leading-none">×</span>
-            </button>
-          </div>
-
-          <div className="px-6 pt-8 pb-6 space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={closeMenu}
-                data-active={pathname === link.href ? "true" : "false"}
-                className="nav-link h-12 flex items-center justify-center text-[17px] font-medium"
-              >
-                {link.name}
-              </Link>
-            ))}
-
-            <Link
-              href="/contact"
-              onClick={closeMenu}
-              data-active={pathname === "/contact" ? "true" : "false"}
-              className="cta-btn h-12 flex items-center justify-center text-[17px] font-medium"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
       </header>
+
+      {/* Mobile Overlay */}
+      <div
+        className={`fixed inset-0 z-[999] bg-white transition-all duration-300 md:hidden ${
+          open
+            ? "translate-x-0 opacity-100"
+            : "translate-x-full opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Mobile Header */}
+        <div className="relative flex h-[72px] items-center justify-center border-b border-gray-300 px-6">
+          <span className="text-[14px] font-medium uppercase tracking-[0.22em] text-gray-700">
+            Navigation
+          </span>
+
+          <button
+            onClick={closeMenu}
+            aria-label="Close Menu"
+            className="absolute right-6 flex h-10 w-10 items-center justify-center text-gray-700 hover:bg-gray-100"
+          >
+            <span className="text-[24px] leading-none">×</span>
+          </button>
+        </div>
+
+        {/* Links */}
+        <div className="space-y-4 px-6 pt-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={closeMenu}
+              data-active={pathname === link.href ? "true" : "false"}
+              className="nav-link flex h-12 items-center justify-center text-[17px] font-medium"
+            >
+              {link.name}
+            </Link>
+          ))}
+
+          <Link
+            href="/contact"
+            onClick={closeMenu}
+            data-active={pathname === "/contact" ? "true" : "false"}
+            className="cta-btn flex h-12 items-center justify-center text-[17px] font-medium"
+          >
+            Contact Us
+          </Link>
+        </div>
+      </div>
     </>
   );
 }
