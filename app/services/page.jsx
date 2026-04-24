@@ -11,7 +11,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="bg-[#f3f3f3] min-h-screen">
+    <main className="min-h-screen">
       <section className="max-w-7xl mx-auto px-6 md:px-10 py-20">
         {/* Heading */}
         <h1 className="text-5xl md:text-7xl font-light tracking-tight text-[#1f2238] uppercase">

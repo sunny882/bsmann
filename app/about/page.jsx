@@ -1,140 +1,127 @@
 import Image from "next/image";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 export default function AboutPage() {
   return (
-    <main className="bg-[#dce8f3] text-[#1f2238] overflow-hidden">
-      {/* TOP SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-12">
-        <div className="grid lg:grid-cols-2 bg-white min-h-[650px]">
-          {/* LEFT CONTENT */}
-          <div className="px-6 sm:px-10 lg:px-16 py-10 sm:py-16 flex flex-col justify-center">
-            <p className="text-xs tracking-[0.4em] uppercase text-slate-500 mb-5">
-              Leadership
+    <main className="bg-[#d3deea]">
+      {/* SECTION 1 - PROFILE */}
+      <section className="max-w-7xl mx-auto px-4 py-10">
+        <div className="grid lg:grid-cols-2 gap-6 items-stretch">
+          
+          {/* LEFT TEXT */}
+          <div className="bg-white p-8 md:p-12 flex flex-col justify-center">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-2">
+              Harsimranjit Singh Mann
+            </h2>
+            <p className="text-gray-500 mb-4">President</p>
+
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              Harsimranjit Singh Mann is the dynamic President and Founder of
+              BS Mann Trucking Inc, a growing transportation company based in
+              California. Starting his trucking career in 2017, he spent years
+              on the road gaining firsthand experience in every part of the
+              industry before launching his own company in 2021.
             </p>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light leading-[0.95]">
-              Harsimranjit
-              <br />
-              Singh Mann
-            </h1>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              With strong business sense and a drive for excellence, Mann has
+              led BS Mann Trucking through steady growth — expanding the fleet,
+              improving operations, and earning a reputation for reliability,
+              communication, and on-time delivery.
+            </p>
 
-            <p className="mt-5 text-xl sm:text-3xl font-light">President</p>
-
-            <div className="mt-8 space-y-5 text-base sm:text-lg leading-8 text-slate-700 max-w-xl">
-              <p>
-                Harsimranjit Singh Mann is the Founder and President of BS Mann
-                Trucking Inc, a growing transportation company based in
-                California.
-              </p>
-
-              <p>
-                He began his trucking career in 2017, gaining firsthand
-                experience on the road before launching his own company in 2021.
-              </p>
-
-              <p>
-                Through discipline, reliability, and customer-first service, he
-                has built the company through steady growth.
-              </p>
-            </div>
-
-            <div className="flex gap-4 mt-10">
-              <a className="w-12 h-12 rounded-full bg-[#1f2238] text-white flex items-center justify-center">
-                f
+            {/* SOCIAL LINKS */}
+            <div className="flex gap-4 mt-6">
+              <a
+                href="https://www.facebook.com/officailharsimranMann"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition"
+              >
+                <FaFacebookF size={14} />
               </a>
-              <a className="w-12 h-12 rounded-full bg-[#1f2238] text-white flex items-center justify-center">
-                ig
+
+              <a
+                href="https://www.instagram.com/imharsimranmann/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition"
+              >
+                <FaInstagram size={16} />
               </a>
             </div>
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="relative min-h-[400px] lg:min-h-full">
+          <div className="relative w-full h-[400px] md:h-[500px]">
             <Image
-              src="/owner.jpg"
+              src="/person.jpeg" // replace with actual image
               alt="Founder"
               fill
-              priority
               className="object-cover"
+              priority
             />
           </div>
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
-      <section className="relative">
-        {/* TOP GRID */}
+      {/* SECTION 2 - ABOUT */}
+      <section className="max-w-7xl mx-auto px-4 pb-10">
         <div className="grid lg:grid-cols-2">
-          {/* LEFT */}
-          <div className="bg-[#5c5d69] text-white px-6 sm:px-10 lg:px-16 py-16 sm:py-24 flex items-center">
-            <h2 className="text-5xl sm:text-7xl font-light">About us</h2>
+          
+          {/* LEFT DARK BOX */}
+          <div className="bg-[#2c2f3f] flex items-center justify-center min-h-[250px] md:min-h-[350px]">
+            <h2 className="text-white text-3xl md:text-4xl font-medium">
+              About us
+            </h2>
           </div>
 
-          {/* RIGHT */}
-          <div className="bg-white px-6 sm:px-10 lg:px-16 py-16 sm:py-24">
-            <p className="text-xs tracking-[0.4em] uppercase text-slate-500 mb-6">
-              Get to Know Us
+          {/* RIGHT TEXT */}
+          <div className="bg-white p-8 md:p-12">
+            <h3 className="font-semibold mb-4 text-lg">Get to Know Us</h3>
+
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              BS Mann Trucking was started in 2021 by Harsimranjit Singh Mann,
+              who had been driving trucks since 2017. After years on the road,
+              he decided to take what he learned behind the wheel and build
+              something of his own — a company that gets the job done right.
             </p>
 
-            <div className="space-y-5 text-base sm:text-lg leading-8 text-slate-700">
-              <p>
-                BS Mann Trucking started in 2021 with one truck and a clear
-                mission: dependable service done right.
-              </p>
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              We started small, with one truck and a lot of determination. By
+              2023, things began to grow — more trucks, more routes, and more
+              responsibility. Like any business, we’ve had our ups and downs.
+            </p>
 
-              <p>
-                Since then, the company has expanded with more trucks, more
-                routes, and stronger operations.
-              </p>
-
-              <p>
-                We focus on communication, timing, and trust — ensuring every
-                shipment reaches safely and on schedule.
-              </p>
-            </div>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              At BS Mann Trucking, we don’t overpromise. We just make sure every
+              load gets where it needs to be — safely, on time, and with care.
+            </p>
           </div>
         </div>
+      </section>
 
-        {/* CURVED BOTTOM */}
-        <div className="relative bg-[#1f2238] pt-24 sm:pt-32 pb-16">
-          {/* curve */}
-          <div className="absolute top-0 left-0 w-full -translate-y-full">
-            <svg
-              viewBox="0 0 1440 160"
-              className="w-full h-[90px] sm:h-[130px]"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0,160 C420,30 1020,30 1440,160 L1440,160 L0,160 Z"
-                fill="#1f2238"
-              />
-            </svg>
+      {/* SECTION 3 - IMAGE + TAGLINE */}
+      <section className="max-w-7xl mx-auto px-4 pb-16">
+        <div className="grid md:grid-cols-2 items-center">
+          
+          {/* TRUCK IMAGE */}
+          <div className="relative w-full h-[250px] md:h-[350px]">
+            <Image
+              src="/trucks.jpg" // replace with actual image
+              alt="Trucks"
+              fill
+              className="object-cover"
+            />
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            <div className="grid lg:grid-cols-3 gap-8 items-center">
-              {/* IMAGE */}
-              <div className="relative h-[280px] sm:h-[360px] lg:col-span-1">
-                <Image
-                  src="/trucks.jpg"
-                  alt="Fleet"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              {/* TEXT CARD */}
-              <div className="bg-white p-8 sm:p-12 lg:col-span-1">
-                <h3 className="text-4xl sm:text-6xl font-light leading-tight">
-                  Delivering trust,
-                  <br />
-                  mile after mile.
-                </h3>
-              </div>
-
-              {/* EMPTY SPACE */}
-              <div className="hidden lg:block" />
-            </div>
+          {/* TEXT */}
+          <div className="bg-white flex items-center justify-center h-full p-8">
+            <h2 className="text-2xl md:text-3xl font-medium text-gray-700 text-center md:text-left">
+              Delivering trust,
+              <br />
+              mile after mile.
+            </h2>
           </div>
         </div>
       </section>
