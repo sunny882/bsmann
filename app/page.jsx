@@ -7,7 +7,7 @@ export default function HomePage() {
     <main className="bg-white pt-4 text-[#1f2238]">
       <section className="max-w-7xl mx-auto">
         <div className="text-5xl p-3 font-light">
-          Test Dev REFRIGERATED HAULING
+          DEPENDABLE REFRIGERATED HAULING
         </div>
         <HeroSlideshow />
         <div className="p-2 font-sans text-lg">
