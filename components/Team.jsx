@@ -1,4 +1,5 @@
 import { getTeamData } from "@/lib/team";
+import Image from "next/image";
 
 export default function Team() {
   const data = getTeamData();
@@ -27,11 +28,12 @@ export default function Team() {
               {dept.people.map((person) => (
                 <div key={person.image} className="text-center">
                   {/* Image */}
-                  <div className="w-[160px] sm:w-[200px] aspect-4/5 overflow-hidden bg-gray-100 mx-auto border border-gray-300">
-                    <img
+                  <div className="w-40 sm:w-50 aspect-4/5 overflow-hidden bg-gray-100 mx-auto border border-gray-300 relative">
+                    <Image
                       src={person.image}
                       alt={person.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
 
