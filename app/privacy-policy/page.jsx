@@ -1,4 +1,6 @@
 export default function PrivacyPage() {
+  const lastUpdated = "August 2026";
+
   return (
     <main className="bg-white text-[#1f2238]">
       <section className="max-w-4xl mx-auto px-6 md:px-10 py-16">
@@ -7,92 +9,138 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
 
-        <p className="text-sm text-slate-500 mb-10">Last Updated: April 2026</p>
+        <p className="text-sm text-slate-500 mb-10">
+          Last Updated: {lastUpdated}
+        </p>
 
-        {/* Intro */}
+        {/* Introduction */}
         <p className="text-slate-600 mb-10 leading-relaxed">
-          BS Mann Trucking Inc (“Company,” “we,” “our,” “us”) respects your
-          privacy. This Privacy Policy explains how we collect and use
-          information when you use our website.
+          BS Mann Trucking Inc {`("we", "us", "our")`} is committed to
+          protecting the privacy and security of the information provided by our
+          clients. This Privacy Policy explains how we collect, use, and
+          safeguard personal information submitted through our website and
+          electronic communications.
         </p>
 
         <div className="space-y-10">
-          {/* Information Collection */}
+          {/* Information We Collect */}
           <section>
             <h2 className="text-xl font-semibold mb-3">
               Information We Collect
             </h2>
 
             <p className="text-slate-600 mb-4">
-              We only collect personal information that you voluntarily provide
-              through our contact forms or direct communication.
+              We may collect the following types of information when you submit
+              data electronically:
             </p>
 
             <ul className="list-disc ml-6 text-slate-600 space-y-1">
-              <li>Name</li>
-              <li>Email address</li>
-              <li>Phone number</li>
-              <li>Any message or information you choose to provide</li>
+              <li>Full Name</li>
+              <li>Email Address</li>
+              <li>Phone Number</li>
+              <li>Mailing Address</li>
+              <li>
+                Email messages, text messages, attachments, or any other
+                correspondence sent to us
+              </li>
             </ul>
           </section>
 
-          {/* SMS */}
-          <section>
-            <h2 className="text-xl font-semibold mb-3">
-              SMS and Phone Numbers
-            </h2>
-
-            <p className="text-slate-600">
-              Phone numbers provided for SMS communication are used only for
-              service-related messaging and are not shared with third parties
-              for marketing purposes.
-            </p>
-          </section>
-
-          {/* Usage */}
+          {/* How We Use */}
           <section>
             <h2 className="text-xl font-semibold mb-3">
               How We Use Your Information
             </h2>
 
             <ul className="list-disc ml-6 text-slate-600 space-y-1">
-              <li>To respond to inquiries</li>
-              <li>To provide service-related communication</li>
-              <li>To follow up on requests or appointments</li>
+              <li>To respond to inquiries and provide requested services</li>
+              <li>To communicate regarding appointments or service updates</li>
+              <li>To maintain internal records</li>
+              <li>To comply with legal and regulatory requirements</li>
+            </ul>
+          </section>
+
+          {/* Data Security */}
+          <section>
+            <h2 className="text-xl font-semibold mb-3">
+              Data Security & Protection
+            </h2>
+
+            <p className="text-slate-600 mb-4">
+              We prioritize the security of your personal information through
+              the following measures:
+            </p>
+
+            <ul className="list-disc ml-6 text-slate-600 space-y-1">
+              <li>
+                Encryption: Electronic transmissions are secured using
+                industry-standard encryption methods
+              </li>
+              <li>
+                Secure Storage: Data is stored in encrypted systems with
+                restricted access
+              </li>
+              <li>
+                Access Controls: Only authorized personnel can access sensitive
+                information
+              </li>
+              <li>
+                Regular Monitoring: Systems are monitored for vulnerabilities
+                and unauthorized access
+              </li>
             </ul>
           </section>
 
           {/* Sharing */}
           <section>
             <h2 className="text-xl font-semibold mb-3">
-              Sharing of Information
+              Sharing Your Information
             </h2>
 
-            <p className="text-slate-600">
-              We do not sell or rent your personal information. Information may
-              only be shared if required by law or to protect our rights.
+            <p className="text-slate-600 mb-4">
+              We do not sell, rent, or trade your personal information. We may
+              share your information only in the following circumstances:
+            </p>
+
+            <ul className="list-disc ml-6 text-slate-600 space-y-1">
+              <li>With your explicit consent</li>
+              <li>
+                With trusted service providers that assist in delivering our
+                services
+              </li>
+              <li>When required by law, regulation, or government request</li>
+            </ul>
+
+            <p className="text-slate-600 mt-4">
+              <strong>SMS Privacy:</strong> Phone numbers collected for SMS
+              communication are not shared with third parties or affiliates for
+              marketing purposes.
             </p>
           </section>
 
-          {/* Data Security */}
+          {/* Rights */}
           <section>
-            <h2 className="text-xl font-semibold mb-3">Data Security</h2>
+            <h2 className="text-xl font-semibold mb-3">Your Rights</h2>
 
-            <p className="text-slate-600">
-              We take reasonable measures to protect your information. However,
-              no method of transmission over the internet is completely secure.
-            </p>
+            <ul className="list-disc ml-6 text-slate-600 space-y-1">
+              <li>Access, review, and update your personal information</li>
+              <li>
+                Request deletion of your data (subject to legal retention
+                requirements)
+              </li>
+            </ul>
           </section>
 
-          {/* Updates */}
+          {/* Retention */}
           <section>
             <h2 className="text-xl font-semibold mb-3">
-              Changes to This Policy
+              Retention of Information
             </h2>
 
             <p className="text-slate-600">
-              We may update this Privacy Policy from time to time. Updates will
-              be posted on this page with a revised date.
+              We retain personal information only as long as necessary to
+              provide services, comply with legal obligations, and maintain
+              accurate business records.
             </p>
           </section>
 
@@ -101,7 +149,8 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold mb-3">Contact Us</h2>
 
             <p className="text-slate-600">
-              If you have any questions, contact us at:
+              If you have any questions or wish to exercise your privacy rights,
+              please contact us:
               <br />
               Email:{" "}
               <a
@@ -115,6 +164,17 @@ export default function PrivacyPage() {
               <a href="tel:+16618995563" className="text-blue-600 underline">
                 +1 (661) 899-5563
               </a>
+            </p>
+          </section>
+
+          {/* Updates */}
+          <section>
+            <h2 className="text-xl font-semibold mb-3">Policy Updates</h2>
+
+            <p className="text-slate-600">
+              We may update this Privacy Policy to reflect changes in legal or
+              operational requirements. Significant updates will be communicated
+              appropriately.
             </p>
           </section>
         </div>
