@@ -14,7 +14,7 @@ export default function HomePage() {
             BS MANN TRUCKING INC specializes in hauling refrigerated products
             and provides dispatcher services with fuel cards. We have been
             providing the best services to San Francisco and surrounding areas
-            since 2000. Fair prices, superior quality and exceptional customer
+            since 2017. Fair prices, superior quality and exceptional customer
             service are guaranteed when you work with us.
           </p>
           <Link
