@@ -1,5 +1,7 @@
 import Link from "next/link";
 import HeroSlideshow from "@/components/Slideshow";
+import LatestNews from "@/components/LatestNews";
+import { Truck, User, Container } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -25,6 +27,57 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+      <section className="py-14 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          {/* Heading */}
+          <div className="mb-10">
+            <h2 className="text-3xl md:text-4xl font-light tracking-wide">
+              OUR FLEET
+            </h2>
+            <p className="text-gray-500 mt-2 text-sm md:text-base">
+              Reliable equipment and experienced drivers powering every
+              delivery.
+            </p>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {/* Trucks */}
+            <div className="border border-gray-200 rounded-xl p-8 text-center hover:shadow-md transition">
+              <div className="flex justify-center mb-4">
+                <Truck className="w-10 h-10 text-pink-700 stroke-[1.5]" />
+              </div>
+              <div className="text-4xl md:text-5xl font-light text-pink-700">
+                35+
+              </div>
+              <p className="mt-3 text-gray-600 tracking-wide">Trucks</p>
+            </div>
+
+            {/* Drivers */}
+            <div className="border border-gray-200 rounded-xl p-8 text-center hover:shadow-md transition">
+              <div className="flex justify-center mb-4">
+                <User className="w-10 h-10 text-pink-700 stroke-[1.5]" />
+              </div>
+              <div className="text-4xl md:text-5xl font-light text-pink-700">
+                40+
+              </div>
+              <p className="mt-3 text-gray-600 tracking-wide">Drivers</p>
+            </div>
+
+            {/* Trailers */}
+            <div className="border border-gray-200 rounded-xl p-8 text-center hover:shadow-md transition">
+              <div className="flex justify-center mb-4">
+                <Container className="w-10 h-10 text-pink-700 stroke-[1.5]" />
+              </div>
+              <div className="text-4xl md:text-5xl font-light text-pink-700">
+                40+
+              </div>
+              <p className="mt-3 text-gray-600 tracking-wide">Trailers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <LatestNews />
       <section className="bg-[#5f616b] text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4">
           {/* TOP CONTENT */}
