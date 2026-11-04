@@ -9,7 +9,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 bg-white shadow-md overflow-hidden">
           {/* LEFT DARK PANEL */}
-          <div className="bg-[#2f3446] flex items-center justify-center min-h-[220px] md:min-h-[320px]">
+          <div className="bg-[#2f3446] flex items-center justify-center min-h-55 md:min-h-80">
             <h2 className="text-white text-3xl md:text-4xl font-medium tracking-wide">
               About us
             </h2>
@@ -46,7 +46,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 gap-0 bg-white shadow-md overflow-hidden">
           {/* IMAGE */}
-          <div className="relative w-full h-[350px] md:h-[500px]">
+          <div className="relative w-full h-87.5 md:h-125">
             <Image
               src="/person.jpeg"
               alt="Founder"
@@ -109,7 +109,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 bg-white shadow-md overflow-hidden">
           {/* IMAGE */}
-          <div className="relative w-full h-[250px] md:h-[350px]">
+          <div className="relative w-full h-62.5 md:h-87.5">
             <Image
               src="/trucks.jpg"
               alt="Trucks"
