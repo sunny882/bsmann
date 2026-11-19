@@ -1,6 +1,5 @@
 import Link from "next/link";
 import HeroSlideshow from "@/components/Slideshow";
-import LatestNews from "@/components/LatestNews";
 import { Truck, User, Container } from "lucide-react";
 
 export default function HomePage() {
@@ -77,7 +76,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <LatestNews />
       <section className="bg-[#5f616b] text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4">
           {/* TOP CONTENT */}
